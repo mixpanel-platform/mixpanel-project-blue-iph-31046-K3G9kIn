@@ -19,6 +19,7 @@
       });
        
       for (var i = 0; i < Top100.length; i++) {
+        console.log(i);
         var eventName = Top100[i];
         console.log(eventName);
         promisesTop100.push(MP.api.segment(eventName, {
