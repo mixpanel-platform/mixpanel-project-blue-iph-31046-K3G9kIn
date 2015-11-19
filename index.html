@@ -10,13 +10,32 @@
     <h1>Top 100 Events</h1>
 
     <script>
-        var params = {type: 'general'}
-        var Top100 = MP.api.topEvents(params)
-        console.log(Top100.values())
-          
+      var params = {type: 'general'}
+      var Top100 = [];
+      var promisesTop100 = [];
         
+      MP.api.topEvents(params).done(function(results) {
+        Top100 = results.values(); 
+      });
        
-          
+      for (var i = 0; i < Top100.length; i++) {
+        var eventName = Top100[i];
+        console.log(eventName);
+        promisesTop100.push(MP.api.segment(eventName, {
+          from: moment().subtract(30, 'days'),
+          to: moment(), 
+          limit: 100,
+          type: 'general',
+          unit: 'day'}
+        )); 
+      };
+      
+      var $results = Promise.all(promisesTop100).then(function(promiseArray){
+        _.each(promiseArray, function(data){
+          console.log(data);
+        });
+      });
+
         </script>
   </body>
 </html>
