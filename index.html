@@ -8,8 +8,11 @@
   </head>
   <body class="mixpanel-platform-body">
     <h1>Top 100 Events</h1>
-
+    <div id="mptable"></div> 
     <script>
+    MP.api.ready(function(){ 
+      
+      var eventTable = $('#mptable').MPTable({showPercentages: true, firstColHeader: 'Daily Event Count'})
       var params = {type: 'general'}
       var Top100 = [];
       var promisesTop100 = [];
@@ -36,9 +39,10 @@
             Top100Segmentation[events] = {};
             Top100Segmentation[events] = results[events];
           });
-          console.log(Top100Segmentation)
+          eventTable.MPTable('setData', Top100Segmentation)
         });
       });
+    });
       
         </script>
   </body>
