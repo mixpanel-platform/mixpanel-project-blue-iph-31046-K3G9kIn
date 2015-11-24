@@ -32,6 +32,7 @@
         var $results = Promise.all(promisesTop100).then(function(promiseArray){
           _.each(promiseArray, function(data){
             console.log(data.values());
+            debugger;
           });
         });
       });
