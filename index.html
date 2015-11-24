@@ -30,8 +30,8 @@
         };
       
         var $results = Promise.all(promisesTop100).then(function(promiseArray){
-          _.each(promiseArray, function(data){
-            debugger
+          _.each(_.keys(promiseArray.values()), function(data){
+            debugger;
           });
         });
       });
