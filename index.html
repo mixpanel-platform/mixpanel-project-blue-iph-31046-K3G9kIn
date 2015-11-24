@@ -31,9 +31,12 @@
       
         var $results = Promise.all(promisesTop100).then(function(promiseArray){
           _.each(promiseArray, function(data){
-            console.log(data.values());
-            debugger;
+            results = data.values()
+            events = Object.keys(results)
+            Top100Segmentation[events] = {};
+            Top100Segmentation[events] = results[events];
           });
+          console.log(Top100Segmentation)
         });
       });
       
