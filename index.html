@@ -7,13 +7,13 @@
     <script src="https://cdn.mxpnl.com/libs/mixpanel-platform/build/mixpanel-platform.v0.latest.min.js"></script>
   </head>
   <body class="mixpanel-platform-body">
-    <h1 style="font-size: 18px; color: rbg(95,105,131)">Top 100 Events</h1>
+    <h1 style="font-size: 18px; color: rbg(95,105,131)">Review day over day changes of your top events.</h1>
     <br>
     <div id="mptable"></div> 
     <script>
     MP.api.ready(function(){ 
       
-      var eventTable = $('#mptable').MPTable({showPercentages: true, firstColHeader: 'Event'})
+      var eventTable = $('#mptable').MPTable({showPercentages: true, firstColHeader: 'Daily Event Count'})
       var params = {type: 'general'}
       var Top100 = [];
       var promisesTop100 = [];
